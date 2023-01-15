@@ -1,0 +1,6 @@
+it is in App1.js
+
+React Props
+
+React Props are like function arguments in JavaScript and attributes in HTML.
+
