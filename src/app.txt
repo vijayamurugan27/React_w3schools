@@ -1,0 +1,69 @@
+import React from 'react';
+import './App.css';
+
+function App1() {
+
+    const [todos, setTodos] = React.useState([
+        { id: 1, text: "Wash dishes", done: false },
+        { id: 2, text: "Do laundry", done: false },
+        { id: 3, text: "Take shower", done: false }
+      ]);
+
+  return (
+    <div className="container text-center bg-primary text-dark">
+    <h1> To-do List. from App2</h1>
+        <ul>
+      	    <TodoList todos = {todos}></TodoList>
+            <AddTodo setTodos={setTodos}></AddTodo>
+        </ul>
+
+    </div>
+  );
+}
+
+// function Todolist(props){
+//     // console.log(props)
+//     return(<h1>
+//         <ul>
+//             {props.todos.map(todo=>(<li key={todo.id}>{todo.text}</li>))}
+//         </ul>
+        
+//     </h1>
+
+//     )
+// }
+
+////using destructuring.
+//// first change in line no 36. second change in line no 39
+
+function TodoList({ todos }) {
+    return (
+      <ul>
+        {todos.map((todo) => (<li key={todo.id}>{todo.text}</li>))}
+      </ul>
+    );
+  }
+
+
+
+  function AddTodo({setTodos}) {
+  function handleAddTodo(event) {
+    event.preventDefault();
+    const text = event.target.elements.addTodo.value;
+    const todo = {
+      id: 4,
+      text,
+      done: false
+    };
+    setTodos()
+  }
+
+  return (
+    <form onSubmit={handleAddTodo}>
+      <input name="addTodo" placeholder="Add todo" />
+      <button type="submit">Submit</button>
+    </form>
+  );
+}
+
+export default App1;
